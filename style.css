@@ -1,0 +1,116 @@
+/* Define CSS variables for colors in the :root pseudo-class */
+:root {
+    /* Paleta de colores educativa y elegante */
+    --primary-bg-color: #f8f8f8;       /* Fondo principal muy claro (casi blanco) */
+    --secondary-bg-color: #ffffff;     /* Fondo de elementos/cajas (blanco puro) */
+    --text-color-dark: #333333;        /* Texto principal oscuro para alta legibilidad */
+    --text-color-medium: #666666;      /* Texto secundario/descriptivo */
+    --accent-color-blue: #007bff;      /* Color de acento para enlaces, botones, etc. (azul profesional) */
+    --accent-color-red: #dc3545;       /* Color de acento para errores/advertencias (rojo suave) */
+    --border-color-light: #e0e0e0;     /* Borde suave para elementos */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra muy sutil */
+    --highlight-orange: #ffc107;      /* Color de resaltado (naranja suave para alertas/notificaciones) */
+}
+
+body {
+    background-color: var(--primary-bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
+    line-height: 1.6; /* Espaciado entre líneas para mejor legibilidad */
+    color: var(--text-color-dark); /* Color de texto general */
+    margin: 0; /* Elimina el margen predeterminado del body */
+    padding: 20px; /* Relleno general para que el contenido no pegue a los bordes */
+    display: flex; /* Usamos flexbox para centrar y organizar el contenido principal */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+}
+
+/* El color de texto predeterminado para div es el general, pero si queremos uno específico: */
+div {
+    color: var(--text-color-dark); /* Por defecto, el color de texto general */
+}
+
+/* La clase .highlight sobrescribe el color del div a rojo debido a la especificidad */
+.highlight {
+    color: var(--accent-color-red); /* Color de acento rojo para resaltar */
+    font-weight: bold; /* Hacerlo más notorio */
+}
+
+/* El ID #special tiene la mayor especificidad y sobrescribe el color a verde */
+#special {
+    color: var(--accent-color-blue); /* Usamos el azul de acento para algo "especial" */
+    font-size: 1.2em; /* Un poco más grande */
+    font-weight: bold;
+}
+
+
+.box {
+    background-color: var(--secondary-bg-color); /* Fondo blanco para las cajas */
+    border: 1px solid var(--border-color-light); /* Borde suave y sutil */
+    box-shadow: 0 4px 8px var(--shadow-color); /* Sombra más suave y extendida */
+    padding: 30px; /* Relleno interno generoso */
+    margin: 20px 0; /* Margen vertical para separar cajas, sin margen horizontal si están centradas */
+    width: 100%; /* Ancho flexible para la caja */
+    max-width: 800px; /* Ancho máximo para evitar que se extienda demasiado en pantallas grandes */
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho/alto total */
+    text-align: center; /* Centrar contenido dentro de la caja si es deseado */
+}
+
+.content {
+    width: 100%; /* El contenido ocupa el 100% de su contenedor (la caja) */
+    padding: 20px;
+    margin: 0 auto; /* Centrar el contenido horizontalmente dentro de su padre */
+    border: 1px dashed var(--border-color-light); /* Borde más suave o punteado para contenido interno */
+    box-sizing: border-box;
+    max-width: 600px; /* Ancho máximo para el contenido para una legibilidad óptima */
+}
+
+/* Pseudoclase para interactividad al pasar el ratón sobre un enlace */
+a {
+    color: var(--accent-color-blue); /* Color de enlace por defecto */
+    text-decoration: none; /* Sin subrayado por defecto para un look más limpio */
+    transition: color 0.3s ease-in-out; /* Transición suave para el color */
+}
+
+a:hover {
+    color: var(--highlight-orange); /* Cambia el color a naranja de resaltado */
+    text-decoration: underline; /* Subraya al pasar el ratón para indicar interactividad */
+}
+
+/* Pseudoelemento ::before para añadir contenido antes de la caja */
+.box::before {
+    content: "New!"; /* Contenido a añadir, más profesional */
+    color: var(--accent-color-red); /* Color de acento azul */
+    font-weight: bold;
+    display: block; /* Para que el contenido esté en su propia línea */
+    margin-bottom: 10px; /* Espacio debajo del */
+}
+
+.rotate-box {
+    margin: 70px ; /* Centrar horizontalmente con auto */
+    width: 150px; /* Tamaño más moderado */
+    height: 150px;
+    background-color: var(--accent-color-red); /* Fondo rojo de acento */
+    border-radius: 10px; /* Bordes suaves */
+    display: flex; /* Para centrar el contenido (si lo tiene) */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    transform: rotate(0deg); /* Estado inicial */
+    animation: rotateBox 5s linear infinite;
+}
+/* Definición de las animaciones */
+@keyframes rotateBox {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+

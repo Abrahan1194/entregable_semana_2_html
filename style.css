@@ -1,116 +1,184 @@
-/* Define CSS variables for colors in the :root pseudo-class */
+
 :root {
-    /* Paleta de colores educativa y elegante */
-    --primary-bg-color: #f8f8f8;       /* Fondo principal muy claro (casi blanco) */
-    --secondary-bg-color: #ffffff;     /* Fondo de elementos/cajas (blanco puro) */
-    --text-color-dark: #333333;        /* Texto principal oscuro para alta legibilidad */
-    --text-color-medium: #666666;      /* Texto secundario/descriptivo */
-    --accent-color-blue: #007bff;      /* Color de acento para enlaces, botones, etc. (azul profesional) */
-    --accent-color-red: #dc3545;       /* Color de acento para errores/advertencias (rojo suave) */
-    --border-color-light: #e0e0e0;     /* Borde suave para elementos */
-    --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra muy sutil */
-    --highlight-orange: #ffc107;      /* Color de resaltado (naranja suave para alertas/notificaciones) */
+    --color-primario: #3498db;     /* Azul principal para encabezados, animaciones */       
+    --color-secundario: #2ecc71;   /* Verde para acentos, algunas cajas */
+    --color-neutro-claro: #f0f0f0; /* Gris muy claro para fondos generales  */
+    --color-neutro-oscuro: #000;   /* Negro para bordes, texto, pie de página  */
+    --color-amarillo: #f1c40f;     /* Amarillo específico para rotate-box  */
+    --color-naranja: orange;       /* Naranja para el hover del enlace  */
+    --color-purpura: purple;       /* Púrpura para borde de highlight */
+    --color-rojo: red;             /* Rojo para texto de highlight  */
+    --color-verde-texto: green;    /* Verde para texto de special  */
 }
 
+/* Estilos Generales del Cuerpo */
 body {
-    background-color: var(--primary-bg-color);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
-    line-height: 1.6; /* Espaciado entre líneas para mejor legibilidad */
-    color: var(--text-color-dark); /* Color de texto general */
-    margin: 0; /* Elimina el margen predeterminado del body */
-    padding: 20px; /* Relleno general para que el contenido no pegue a los bordes */
-    display: flex; /* Usamos flexbox para centrar y organizar el contenido principal */
-    flex-direction: column; /* Apila los elementos verticalmente */
-    align-items: center; /* Centra los elementos horizontalmente */
-    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
-}
-
-/* El color de texto predeterminado para div es el general, pero si queremos uno específico: */
-div {
-    color: var(--text-color-dark); /* Por defecto, el color de texto general */
-}
-
-/* La clase .highlight sobrescribe el color del div a rojo debido a la especificidad */
-.highlight {
-    color: var(--accent-color-red); /* Color de acento rojo para resaltar */
-    font-weight: bold; /* Hacerlo más notorio */
-}
-
-/* El ID #special tiene la mayor especificidad y sobrescribe el color a verde */
-#special {
-    color: var(--accent-color-blue); /* Usamos el azul de acento para algo "especial" */
-    font-size: 1.2em; /* Un poco más grande */
-    font-weight: bold;
-}
-
-
-.box {
-    background-color: var(--secondary-bg-color); /* Fondo blanco para las cajas */
-    border: 1px solid var(--border-color-light); /* Borde suave y sutil */
-    box-shadow: 0 4px 8px var(--shadow-color); /* Sombra más suave y extendida */
-    padding: 30px; /* Relleno interno generoso */
-    margin: 20px 0; /* Margen vertical para separar cajas, sin margen horizontal si están centradas */
-    width: 100%; /* Ancho flexible para la caja */
-    max-width: 800px; /* Ancho máximo para evitar que se extienda demasiado en pantallas grandes */
-    border-radius: 8px; /* Bordes ligeramente redondeados */
-    box-sizing: border-box; /* Incluye padding y borde en el ancho/alto total */
-    text-align: center; /* Centrar contenido dentro de la caja si es deseado */
-}
-
-.content {
-    width: 100%; /* El contenido ocupa el 100% de su contenedor (la caja) */
+    background-color: var(--color-neutro-claro); /* Fondo gris claro  */
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar contenido horizontalmente */
     padding: 20px;
-    margin: 0 auto; /* Centrar el contenido horizontalmente dentro de su padre */
-    border: 1px dashed var(--border-color-light); /* Borde más suave o punteado para contenido interno */
-    box-sizing: border-box;
-    max-width: 600px; /* Ancho máximo para el contenido para una legibilidad óptima */
+    margin: 0;
 }
 
-/* Pseudoclase para interactividad al pasar el ratón sobre un enlace */
-a {
-    color: var(--accent-color-blue); /* Color de enlace por defecto */
-    text-decoration: none; /* Sin subrayado por defecto para un look más limpio */
-    transition: color 0.3s ease-in-out; /* Transición suave para el color */
+/* Estilos del Encabezado */
+header {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-a:hover {
-    color: var(--highlight-orange); /* Cambia el color a naranja de resaltado */
-    text-decoration: underline; /* Subraya al pasar el ratón para indicar interactividad */
+h1 {
+    color: #333;
 }
 
-/* Pseudoelemento ::before para añadir contenido antes de la caja */
-.box::before {
-    content: "New!"; /* Contenido a añadir, más profesional */
-    color: var(--accent-color-red); /* Color de acento azul */
-    font-weight: bold;
-    display: block; /* Para que el contenido esté en su propia línea */
-    margin-bottom: 10px; /* Espacio debajo del */
+p {
+    color: #666;
 }
 
-.rotate-box {
-    margin: 70px ; /* Centrar horizontalmente con auto */
-    width: 150px; /* Tamaño más moderado */
+/* Estilos de Sección */
+section {
+    background-color: #fff;
+    border: 4px solid var(--color-rojo);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 80%; /* Ancho ajustado para secciones */
+    max-width: 900px; /* Ancho máximo para pantallas grandes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centrar contenido dentro de las secciones */
+}
+
+h2 {
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+/* Estilo Base para todos los cuadrados  */
+.box {
+    background-color: #ffffff; /* Fondo blanco para las cajas  */
+    border: 2px solid var(--color-neutro-oscuro); /* Borde negro para las cajas  */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Sombra de caja  */
+    padding: 20px; /* Relleno interno de las cajas  */
+    margin: 70px auto; /* Centrar los divs individualmente horizontalmente  */
+    width: 150px;
     height: 150px;
-    background-color: var(--accent-color-red); /* Fondo rojo de acento */
-    border-radius: 10px; /* Bordes suaves */
-    display: flex; /* Para centrar el contenido (si lo tiene) */
+    display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
     font-weight: bold;
-    transform: rotate(0deg); /* Estado inicial */
-    animation: rotateBox 5s linear infinite;
+    color: #333;
+    border-radius: 5px;
 }
-/* Definición de las animaciones */
-@keyframes rotateBox {
+
+/* Ejemplos de Especificidad  */
+div {
+    color: blue; /* Color predeterminado para todos los divs  */
+}
+
+.highlight {
+    color: var(--color-rojo); /* Color rojo para la clase 'highlight', más específico que el div genérico  */
+    border-color: var(--color-purpura); /* Borde púrpura para la clase 'highlight' */
+}
+
+#special {
+    color: var(--color-verde-texto); /* Color verde para el ID 'special', el más específico  */
+    border-width: 4px; /* Ancho de borde específico para el ID */
+    background-color: orange;
+}
+
+/* Diferentes Colores para Cajas  */
+.colored-box-1 {
+    background-color: var(--color-primario); /* Azul */
+    border-color: var(--color-primario);
+    border-style:groove;
+    border-inline-start-color: #f1c40f;
+   
+}
+
+.colored-box-2 {
+    background-color: var(--color-secundario); /* Verde */
+    border-color: var(--color-naranja);
+    border-top-color: var(--color-purpura);
+    border-bottom-right-radius: 50%;
+}
+
+/* Animación de Rotación  */
+.rotate-box {
+    background-color: var(--color-amarillo); /* Fondo amarillo  */
+    transform: rotate(45deg); /* Transformación inicial de 45 grados  */
+    animation: infinite-rotate 4s linear infinite; /* Animación de rotación infinita */
+    width: 100px; /* Ancho de 100px para la caja de rotación  */
+    height: 100px; /* Alto de 100px para la caja de rotación  */
+}
+
+@keyframes infinite-rotate {
     0% {
         transform: rotate(0deg);
     }
     100% {
         transform: rotate(360deg);
     }
-    0% { opacity: 0; }
-    100% { opacity: 1; }
 }
 
+/* Efecto Hover para Enlace  */
+a:hover {
+    color: var(--color-naranja); /* Color naranja al pasar el ratón  */
+    text-decoration: underline; /* Subrayado al pasar el ratón  */
+}
 
+/* Pseudoelemento ::before  */
+.box::before {
+    content: "New!"; /* Contenido "New!" antes de la caja  */
+    color: var(--color-rojo); /* Color rojo  */
+    font-weight: bold; /* Negrita  */
+    margin-right: 5px; /* Margen para separar del texto de la caja */
+}
+
+/* Animaciones adicionales para cajas  */
+/* Animación de Desvanecimiento (fade-in), aplicada a .animated-box-1 */
+.animated-box-1 {
+    animation: fade 10s ease-in-out; /* Animación de desvanecimiento  */
+    background-color: var(--color-primario);
+    border-color: (var(--color-primario));
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0; /* Opacidad inicial 0  */
+    }
+    100% {
+        opacity: 1; /* Opacidad final 1  */
+    }
+}
+
+/* Animación de Escalado y Sombra (aplicada a .animated-box-2) */
+.animated-box-2 {
+    transform: rotate(45deg);
+    background-color: var(--color-secundario);
+    border-color: (var(--color-secundario));
+    animation: scale-shadow 1s infinite alternate; /* Animación de escala y sombra */
+}
+
+@keyframes scale-shadow {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+    100%{ transform: rotate(45deg);}
+}
+
+/* Estilos del Pie de Página */
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    border-radius: 8px;
+}
